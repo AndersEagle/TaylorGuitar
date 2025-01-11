@@ -124,3 +124,4 @@ if serial_number:
         st.write("### Serial Number Details:")
         for key, value in result.items():
             st.write(f"**{key}:** {value}")
+
