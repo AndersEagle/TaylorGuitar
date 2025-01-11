@@ -152,8 +152,8 @@ div.stSubheader {
 
 /* Styling error message */
 div.stAlert {
-    background-color: rgba(255, 0, 0, 0.8); /* Red background for error message */
-    color: white !important; /* White text for error message */
+    background-color: rgba(224, 222, 222, 0.8); /* Red background for error message */
+    color: black !important; /* Black text for error message */
     font-weight: bold; /* Make the text bold */
     border-radius: 5px;
     padding: 10px;
