@@ -96,7 +96,7 @@ def interpret_serial(serial_number):
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-    background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/taylor_background.jpg");
+    background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/Taylor_Background.jpg");
     background-size: cover;
     background-position: top center;
 }
