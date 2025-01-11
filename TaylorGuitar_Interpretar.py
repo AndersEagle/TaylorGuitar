@@ -106,15 +106,10 @@ page_bg_img = """
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Styling for the boxes around text */
-div.stMarkdown, div.stText {
-    background-color: rgba(211, 211, 211, 0.8);  /* Light grey background */
-    color: white;  /* White text */
-    padding: 10px;
-    border-radius: 5px;  /* Rounded corners */
-    margin-bottom: 10px;
-    font-size: 14px;  /* Set font size to 14px */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
+/* Remove the grey boxes above the title and below the serial number input */
+div.stText, div.stMarkdown {
+    background: none;  /* Remove background color */
+    color: #e0e0e0;  /* Slightly less white color for text */
 }
 
 /* Title styling */
