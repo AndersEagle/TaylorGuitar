@@ -96,7 +96,7 @@ def interpret_serial(serial_number):
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
-    background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/Taylor_Background.jpg");
+    background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/Taylor_Background2.jpg");
     background-size: cover;  /* Ensures the image always covers the entire container */
     background-position: center center;  /* Centers the image in the container */
     background-attachment: fixed;  /* Ensures the background stays fixed when scrolling */
@@ -104,6 +104,16 @@ page_bg_img = """
 }
 [data-testid="stSidebar"] {
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Styling for the boxes around text */
+div.stMarkdown, div.stText {
+    background-color: rgba(211, 211, 211, 0.8);  /* Light grey background */
+    color: #333333;  /* Dark grey text */
+    padding: 10px;
+    border-radius: 5px;  /* Rounded corners */
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
 }
 </style>
 """
@@ -126,4 +136,5 @@ if serial_number:
         st.write("### Serial Number Details:")
         for key, value in result.items():
             st.write(f"**{key}:** {value}")
+
 
