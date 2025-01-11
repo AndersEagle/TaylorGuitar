@@ -109,17 +109,27 @@ page_bg_img = """
 /* Styling for the boxes around text */
 div.stMarkdown, div.stText {
     background-color: rgba(211, 211, 211, 0.8);  /* Light grey background */
-    color: #333333;  /* Dark grey text */
+    color: white;  /* White text */
     padding: 10px;
     border-radius: 5px;  /* Rounded corners */
     margin-bottom: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
 }
+
+/* Title styling */
+div.stTitle {
+    background-color: rgba(211, 211, 211, 0.8);  /* Light grey background for the title */
+    color: white;  /* White title text */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-st.title("Taylor Guitar Serial Number Interpreter")
+# Title inside box
+st.markdown("<h1 style='text-align: center;'>Taylor Guitar Serial Number Interpreter</h1>", unsafe_allow_html=True)
 st.write("Enter the serial number of your Taylor guitar to learn about its details.")
 
 # User input for serial number
