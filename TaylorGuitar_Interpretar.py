@@ -4,7 +4,7 @@ import streamlit as st
 def interpret_serial(serial_number):
     # Ensure the serial number is valid (9, 10, or 11 digits)
     if len(serial_number) not in [9, 10, 11] or not serial_number.isdigit():
-        return "Invalid serial number. It should be 9, 10, or 11 digits."
+        return {"error": "Invalid serial number. It should be 9, 10, or 11 digits."}
 
     # Process based on the serial number length
     if len(serial_number) == 10:
@@ -17,15 +17,14 @@ def interpret_serial(serial_number):
         factory_location = "El Cajon, California, USA" if factory_code == 1 else "Tecate, Baja California, Mexico"
 
         # Create the result
-        result = f"""
-        Serial Number: {serial_number}
-        Factory Location: {factory_location}
-        Year of Production: {year}
-        Month of Production: {month}
-        Day of Production: {day}
-        Production Sequence Number: {production_sequence}
-        """
-        return result
+        return {
+            "Serial Number": serial_number,
+            "Factory Location": factory_location,
+            "Year of Production": year,
+            "Month of Production": month,
+            "Day of Production": day,
+            "Production Sequence Number": production_sequence,
+        }
 
     elif len(serial_number) == 9:
         # Handle 9-digit serial numbers
@@ -50,15 +49,14 @@ def interpret_serial(serial_number):
         series = series_mapping.get(series_code, "Unknown Series")
 
         # Create the result
-        result = f"""
-        Serial Number: {serial_number}
-        Year of Production: {year}
-        Month of Production: {month}
-        Day of Production: {day}
-        Series: {series}
-        Production Sequence Number: {production_sequence}
-        """
-        return result
+        return {
+            "Serial Number": serial_number,
+            "Year of Production": year,
+            "Month of Production": month,
+            "Day of Production": day,
+            "Series": series,
+            "Production Sequence Number": production_sequence,
+        }
 
     elif len(serial_number) == 11:
         # Handle 11-digit serial numbers
@@ -84,17 +82,31 @@ def interpret_serial(serial_number):
         series = series_mapping.get(series_code, "Unknown Series")
 
         # Create the result
-        result = f"""
-        Serial Number: {serial_number}
-        Year of Production: {year}
-        Month of Production: {month}
-        Day of Production: {day}
-        Series: {series}
-        Production Sequence Number: {production_sequence}
-        """
-        return result
+        return {
+            "Serial Number": serial_number,
+            "Year of Production": year,
+            "Month of Production": month,
+            "Day of Production": day,
+            "Series": series,
+            "Production Sequence Number": production_sequence,
+        }
 
 # Streamlit application interface
+# Background customization
+page_bg_img = """
+<style>
+[data-testid="stAppViewContainer"] {
+    background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/taylor_background.jpg");
+    background-size: cover;
+    background-position: top center;
+}
+[data-testid="stSidebar"] {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 st.title("Taylor Guitar Serial Number Interpreter")
 st.write("Enter the serial number of your Taylor guitar to learn about its details.")
 
@@ -104,4 +116,11 @@ serial_number = st.text_input("Enter the Taylor guitar serial number (9, 10, or 
 # Display result when serial number is entered
 if serial_number:
     result = interpret_serial(serial_number)
-    st.write(result)
+
+    # Check for errors in the result
+    if "error" in result:
+        st.error(result["error"])
+    else:
+        st.write("### Serial Number Details:")
+        for key, value in result.items():
+            st.write(f"**{key}:** {value}")
