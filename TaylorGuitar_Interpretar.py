@@ -170,7 +170,7 @@ st.markdown("<h1 style='text-align: center;'>Taylor Guitar</h1>", unsafe_allow_h
 st.markdown("<h3 style='text-align: center;'>Serial Number Interpreter</h3>", unsafe_allow_html=True)
 
 # Instruction text, centered
-st.markdown("<p style='text-align: center;'>Enter the serial number of your Taylor guitar to learn about its details.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Enter the serial number of your Taylor guitar to learn about it's details.</p>", unsafe_allow_html=True)
 
 # User input for serial number
 serial_number = st.text_input("Enter the Taylor guitar serial number (9, 10, or 11 digits):", "")
@@ -183,7 +183,7 @@ if serial_number:
     if "error" in result:
         st.error(result["error"])
     else:
-        st.write("### Serial Number Details:")
+        st.write("#### Serial Number Details:")
         for key, value in result.items():
             st.write(f"**{key}:** {value}")
 
