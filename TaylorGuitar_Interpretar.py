@@ -97,10 +97,10 @@ page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
     background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/Taylor_Background2.jpg");
-    background-size: cover;  /* Ensures the image always covers the entire container */
+    background-size: contain;  /* Ensures the image always covers the entire container */
     background-position: center center;  /* Centers the image in the container */
     background-attachment: fixed;  /* Ensures the background stays fixed when scrolling */
-    height: 80vh;  /* Ensures the background fills the entire viewport height */
+    height: 100vh;  /* Ensures the background fills the entire viewport height */
 }
 [data-testid="stSidebar"] {
     background-color: rgba(255, 255, 255, 0.5);
@@ -113,7 +113,7 @@ div.stMarkdown, div.stText {
     padding: 10px;
     border-radius: 5px;  /* Rounded corners */
     margin-bottom: 10px;
-    font-size: 14px;  /* Set font size to 14px */
+    font-size: 12px;  /* Set font size to 12px */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
 }
 
