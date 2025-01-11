@@ -124,7 +124,15 @@ div.stTitle {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    font-size: 16px;  /* Adjust the title font size */
+    font-size: 32px;  /* Larger font size for the main title */
+    margin-bottom: 10px;
+}
+
+/* Subtitle styling */
+div.stSubheader {
+    color: white;  /* White color for the subtitle */
+    text-align: center;
+    font-size: 24px;  /* Slightly smaller font size for the subtitle */
 }
 
 /* Styling for the footer text box */
@@ -145,9 +153,14 @@ div.stTitle {
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Title inside box
-st.markdown("<h1 style='text-align: center;'>Taylor Guitar Serial Number Interpreter</h1>", unsafe_allow_html=True)
-st.write("Enter the serial number of your Taylor guitar to learn about its details.")
+# Main title (h1)
+st.markdown("<h1 style='text-align: center;'>Taylor Guitar</h1>", unsafe_allow_html=True)
+
+# Subtitle (h2)
+st.markdown("<h2 style='text-align: center;'>Serial Number Interpreter</h2>", unsafe_allow_html=True)
+
+# Instruction text, centered
+st.markdown("<p style='text-align: center;'>Enter the serial number of your Taylor guitar to learn about its details.</p>", unsafe_allow_html=True)
 
 # User input for serial number
 serial_number = st.text_input("Enter the Taylor guitar serial number (9, 10, or 11 digits):", "")
@@ -170,6 +183,7 @@ st.markdown("""
         Developed by: EagleOne Originals, Sweden, January 2025.
     </div>
 """, unsafe_allow_html=True)
+
 
 
 
