@@ -151,14 +151,15 @@ div.stSubheader {
 }
 
 /* Styling error message */
-div.stAlert {
-    background-color: rgba(255, 0, 0, 0.8); /* Red background for error message */
+div[role="alert"] {
+    background-color: rgba(255, 0, 0, 0.8) !important; /* Red background for error message */
     color: white !important; /* White text for error message */
     font-weight: bold; /* Make the text bold */
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
 }
+
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
