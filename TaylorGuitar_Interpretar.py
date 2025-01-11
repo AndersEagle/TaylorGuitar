@@ -4,7 +4,7 @@ import streamlit as st
 def interpret_serial(serial_number):
     # Ensure the serial number is valid (9, 10, or 11 digits)
     if len(serial_number) not in [9, 10, 11] or not serial_number.isdigit():
-        return {"error": "Invalid serial number. It should be 9, 10, or 11 digits."}
+        return {"error": "Invalid serial number. It should be 9, 10, or 11 digits. Please try again."}
 
     # Process based on the serial number length
     if len(serial_number) == 10:
@@ -149,6 +149,16 @@ div.stSubheader {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
     z-index: 10;  /* Ensure it stays on top */
 }
+
+/* Styling error message */
+div.stAlert {
+    background-color: rgba(255, 0, 0, 0.8); /* Red background for error message */
+    color: white !important; /* White text for error message */
+    font-weight: bold; /* Make the text bold */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
+}
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
@@ -156,8 +166,8 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 # Main title (h1)
 st.markdown("<h1 style='text-align: center;'>Taylor Guitar</h1>", unsafe_allow_html=True)
 
-# Subtitle (h2)
-st.markdown("<h2 style='text-align: center;'>Serial Number Interpreter</h2>", unsafe_allow_html=True)
+# Subtitle (h3)
+st.markdown("<h3 style='text-align: center;'>Serial Number Interpreter</h3>", unsafe_allow_html=True)
 
 # Instruction text, centered
 st.markdown("<p style='text-align: center;'>Enter the serial number of your Taylor guitar to learn about its details.</p>", unsafe_allow_html=True)
