@@ -97,7 +97,7 @@ page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
     background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/Taylor_Background2.jpg");
-    background-size: contain;  /* Ensures the image always covers the entire container */
+    background-size: contain;  /* Ensures the image fits entirely within the container */
     background-position: center center;  /* Centers the image in the container */
     background-attachment: fixed;  /* Ensures the background stays fixed when scrolling */
     height: 100vh;  /* Ensures the background fills the entire viewport height */
@@ -113,7 +113,7 @@ div.stMarkdown, div.stText {
     padding: 10px;
     border-radius: 5px;  /* Rounded corners */
     margin-bottom: 10px;
-    font-size: 12px;  /* Set font size to 12px */
+    font-size: 14px;  /* Set font size to 14px */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
 }
 
@@ -125,6 +125,21 @@ div.stTitle {
     border-radius: 5px;
     text-align: center;
     font-size: 16px;  /* Adjust the title font size */
+}
+
+/* Styling for the footer text box */
+.footer-box {
+    position: fixed;
+    bottom: 10px;  /* Position it near the bottom of the screen */
+    left: 50%;  /* Center it horizontally */
+    transform: translateX(-50%);  /* Ensure it's perfectly centered */
+    background-color: rgba(211, 211, 211, 0.8);  /* Light grey background */
+    color: white;  /* White text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
+    z-index: 10;  /* Ensure it stays on top */
 }
 </style>
 """
@@ -148,5 +163,13 @@ if serial_number:
         st.write("### Serial Number Details:")
         for key, value in result.items():
             st.write(f"**{key}:** {value}")
+
+# Add footer information
+st.markdown("""
+    <div class="footer-box">
+        Developed by: EagleOne Originals, Sweden, January 2025.
+    </div>
+""", unsafe_allow_html=True)
+
 
 
