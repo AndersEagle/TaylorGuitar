@@ -112,6 +112,11 @@ div.stText, div.stMarkdown {
     color: #e0e0e0;  /* Slightly less white color for text */
 }
 
+/* Match the input label color to the title text */
+label {
+    color: white !important;  /* White color for the serial number input label */
+}
+
 /* Title styling */
 div.stTitle {
     background-color: rgba(211, 211, 211, 0.8);  /* Light grey background for the title */
