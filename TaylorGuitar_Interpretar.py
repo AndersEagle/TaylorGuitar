@@ -97,81 +97,31 @@ page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] {
     background-image: url("https://raw.githubusercontent.com/AndersEagle/TaylorGuitar/main/Taylor_Background2.jpg");
-    background-size: contain;  /* Ensures the image fits entirely within the container */
-    background-position: center center;  /* Centers the image in the container */
-    background-attachment: fixed;  /* Ensures the background stays fixed when scrolling */
-    height: 100vh;  /* Ensures the background fills the entire viewport height */
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
 }
 [data-testid="stSidebar"] {
     background-color: rgba(255, 255, 255, 0.5);
 }
-
-/* Remove the grey boxes above the title and below the serial number input */
-div.stText, div.stMarkdown {
-    background: none;  /* Remove background color */
-    color: #e0e0e0;  /* Slightly less white color for text */
-}
-
-/* Match the input label color to the title text */
-label {
-    color: white !important;  /* White color for the serial number input label */
-}
-
-/* Title styling */
-div.stTitle {
-    background-color: rgba(211, 211, 211, 0.8);  /* Light grey background for the title */
-    color: white;  /* White title text */
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 32px;  /* Larger font size for the main title */
-    margin-bottom: 10px;
-}
-
-/* Subtitle styling */
-div.stSubheader {
-    color: white;  /* White color for the subtitle */
-    text-align: center;
-    font-size: 24px;  /* Slightly smaller font size for the subtitle */
-}
-
-/* Styling for the footer text box */
-.footer-box {
-    position: fixed;
-    bottom: 10px;  /* Position it near the bottom of the screen */
-    left: 50%;  /* Center it horizontally */
-    transform: translateX(-50%);  /* Ensure it's perfectly centered */
-    background-color: rgba(211, 211, 211, 0.8);  /* Light grey background */
-    color: white;  /* White text */
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for 3D effect */
-    z-index: 10;  /* Ensure it stays on top */
-}
-
-/* Styling error message */
 div[role="alert"] {
-    background-color: rgba(255, 0, 0, 0.8) !important; /* Red background for error message */
-    color: white !important; /* White text for error message */
-    font-weight: bold; /* Make the text bold */
+    background-color: rgba(255, 0, 0, 0.8) !important;
+    color: white !important;
+    font-weight: bold;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Main title (h1)
+# Main title
 st.markdown("<h1 style='text-align: center;'>Taylor Guitar</h1>", unsafe_allow_html=True)
 
-# Subtitle (h3)
+# Subtitle
 st.markdown("<h3 style='text-align: center;'>Serial Number Interpreter</h3>", unsafe_allow_html=True)
-
-# Instruction text, centered
-st.markdown("<p style='text-align: center;'>Enter the serial number of your Taylor guitar to learn about its details.</p>", unsafe_allow_html=True)
 
 # User input for serial number
 serial_number = st.text_input("Enter the Taylor guitar serial number (9, 10, or 11 digits):", "")
@@ -188,12 +138,31 @@ if serial_number:
         for key, value in result.items():
             st.write(f"**{key}:** {value}")
 
-# Add footer information
+# Button to show pre-1993 information
+if st.button("Show Pre-1993 Serial Numbers"):
+    st.write("### Taylor Guitars Pre-1993 Serial Numbers")
+    st.table({
+        "Serial Numbers": [
+            "[No serial numbers]", "00108 and 10109 to 10146", "20147 to 20315",
+            "30316 to 450", "451 to 900", "901 to 1300", "1301 to 1400",
+            "1401 to 1670", "1671 to 1951", "1952 to 2445", "2446 to 3206",
+            "3207 to 3888", "3889 to 4778", "4779 to 5981", "5982 to 7831",
+            "7832 to 10070", "10071 to 12497", "12498 to 15249", "15250 to 17947"
+        ],
+        "Year": [
+            "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981",
+            "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989",
+            "1990", "1991", "1992"
+        ]
+    })
+
+# Footer
 st.markdown("""
-    <div class="footer-box">
+    <div style='position: fixed; bottom: 10px; width: 100%; text-align: center;'>
         Developed by: EagleOne Originals, Sweden, January 2025.
     </div>
 """, unsafe_allow_html=True)
+
 
 
 
