@@ -14,7 +14,27 @@ def interpret_serial(serial_number):
         month = serial_number[2:4]  # 3rd & 4th digits for the month
         day = serial_number[4:6]  # 5th & 6th digits for the day
         production_sequence = serial_number[7:]  # Last three digits for production sequence
+        
+        # Adjusted year calculation for 2000–2025
+        if year > 2025:
+            year = int("19" + serial_number[1] + serial_number[6])  # Fallback to 1900s if year is above 2025
+
+        # Validation checks
+        if factory_code not in [1, 2]:
+            return {"error": f"Invalid factory code '{factory_code}'. It must be 1 (El Cajon, California, USA) or 2 (Tecate, Baja California, Mexico)."}
+
+        if year < 2000 or year > 2025:
+            return {"error": f"Invalid year '{year}'. The year must be between 2000 and 2025."}
+
+        if month < 1 or month > 12:
+            return {"error": f"Invalid month '{month}'. The month must be between 1 and 12."}
+
+        if day < 1 or day > 31:
+            return {"error": f"Invalid day '{day}'. The day must be between 1 and 31."}
+
+        # Determine factory location
         factory_location = "El Cajon, California, USA" if factory_code == 1 else "Tecate, Baja California, Mexico"
+
 
         # Create the result
         return {
@@ -190,7 +210,7 @@ if serial_number:
 # Add footer information
 st.markdown("""
     <div class="footer-box">
-        Developed by: EagleOne Originals, Sweden, January 2025.
+        Developed by: EagleOne Originals, Sweden, January 2025     eagleone@live.se
     </div>
 """, unsafe_allow_html=True)
 
